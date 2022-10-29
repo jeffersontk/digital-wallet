@@ -20,6 +20,7 @@ export const Content = styled(Dialog.Content)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: showUpDesktop 0.3s ease;
 
   @media (max-width: 600px){
     top: calc(100% - 270px);
@@ -36,6 +37,15 @@ export const Content = styled(Dialog.Content)`
       top: 70%
     }
   }
+  @keyframes showUpDesktop {
+    from {
+      top: 200%
+    }
+    to {
+      top: 50%
+    }
+  }
+
   form {
     margin-top: 1rem;
 
