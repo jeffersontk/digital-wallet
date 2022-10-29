@@ -22,11 +22,20 @@ export const Content = styled(Dialog.Content)`
   transform: translate(-50%, -50%);
 
   @media (max-width: 600px){
-    top: 70%;
+    top: calc(100% - 270px);
     padding-left: 5rem;
     padding-right: 5rem;
+    animation: showUp 0.3s ease;
   }
 
+  @keyframes showUp {
+    from {
+      top: 200%
+    }
+    to {
+      top: 70%
+    }
+  }
   form {
     margin-top: 1rem;
 
