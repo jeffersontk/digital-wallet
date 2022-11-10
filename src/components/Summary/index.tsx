@@ -6,6 +6,14 @@ import { BsCurrencyDollar } from 'react-icons/bs'
 export function Summary() {
   return (
     <SummaryContainer>
+      <SummaryCard variant='positive'>
+        <header>
+          <span>Saldo atual</span>
+          <BsCurrencyDollar color='#fff' size={32}/>
+        </header>
+
+        <strong>R$ 1000 </strong>
+      </SummaryCard >
       <SummaryCard >
         <header>
           <span>Total de entrada</span>
@@ -21,14 +29,6 @@ export function Summary() {
         </header>
 
         <strong>R$ 3000</strong>
-      </SummaryCard >
-      <SummaryCard variant='positive'>
-        <header>
-          <span>Saldo atual</span>
-          <BsCurrencyDollar color='#fff' size={32}/>
-        </header>
-
-        <strong>R$ 1000 </strong>
       </SummaryCard >
     </SummaryContainer>
   )

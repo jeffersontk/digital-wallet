@@ -29,7 +29,8 @@ export const CustomTabsTrigger = styled(Tabs.Trigger)`
   line-height: 1;
   color: ${props => props.theme.white};
   user-select: none;
-
+  cursor: pointer;
+  
   &:first-child { border-top-left-radius: 6px };
   &:last-child { border-top-right-radius: 6px };
   &:hover { color: ${props => props.theme["gray-100"]} };
@@ -40,5 +41,4 @@ export const CustomTabsTrigger = styled(Tabs.Trigger)`
     position: relative; 
     background-color: ${props => props.theme["green-500"]};
   };
-  
 `

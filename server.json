@@ -1,0 +1,31 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de sites",
+      "type": "income",
+      "typeOfExpense": "income",
+      "category": "venda",
+      "price": 14000,
+      "createdAt": "2022-11-09T17:53:44.505Z"
+    },
+    {
+      "id": 2,
+      "description": "Conta de luz",
+      "type": "outcome",
+      "typeOfExpense": "fixed",
+      "category": "casa",
+      "price": 183,
+      "createdAt": "2022-11-09T17:53:44.505Z"
+    },
+    {
+      "id": 3,
+      "description": "Hamburger",
+      "type": "outcome",
+      "typeOfExpense": "variable",
+      "category": "Alimentação",
+      "price": 39.99,
+      "createdAt": "2022-11-09T17:53:44.505Z"
+    }
+  ]
+}
