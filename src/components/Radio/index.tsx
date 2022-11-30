@@ -1,5 +1,7 @@
+
+import * as RadioGroup from '@radix-ui/react-radio-group';
 import React from 'react'
-import { Label, RadioInput } from './styles'
+import { Label, RadioButtonMouthFilter, RadioInput } from './styles'
 
 interface RadioProps {
   name: string,
@@ -9,8 +11,9 @@ interface RadioProps {
 export function Radio({name, value}:RadioProps) {
   return (
     <>
-      <RadioInput type="radio" id={value} name={name} value={value}/>
-      <Label htmlFor={value}>{value}</Label>
+      <RadioButtonMouthFilter value={value}>
+        {value}
+      </RadioButtonMouthFilter>
     </>
   )
 }

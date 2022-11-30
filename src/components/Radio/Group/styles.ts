@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-export const RadioGroupContainer = styled.div`
+import * as RadioGroup from '@radix-ui/react-radio-group';
+
+export const RadioGroupContainer = styled(RadioGroup.Root)`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 0.75rem;

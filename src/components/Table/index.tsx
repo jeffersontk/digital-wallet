@@ -1,10 +1,12 @@
 import React from 'react'
-import { Transaction } from '../../pages/Transactions'
+import { Transaction } from '../../contexts/TransactionsContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { PriceHighlight, TransactionsTable } from './styles'
 
 interface tableProps {
   transactions: Transaction[]
 }
+
 export default function Table({transactions}:tableProps) {
   return (
     <TransactionsTable>
@@ -16,13 +18,14 @@ export default function Table({transactions}:tableProps) {
             </td>
             <td>
               <PriceHighlight variant={transaction.type}>
-                {transaction.price}
+                {transaction.type === 'outcome' && '- '}
+                {priceFormatter.format(transaction.price)}
               </PriceHighlight> 
             </td>
             <td>
               {transaction.category}
             </td>
-            <td>{transaction.createdAt}</td>
+            <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
           </tr>
         ))}
       </tbody>
