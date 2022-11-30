@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
 `
 
 export const Card = styled.div`
-  background: ${props => props.theme["gray-700"]};
+  background: ${(props) => props.theme['gray-700']};
   border-radius: 6px;
   padding: 1rem;
   display: flex;
@@ -23,7 +23,7 @@ export const Card = styled.div`
   h4 {
     font-size: 1.25rem;
     font-weight: 400;
-    color: ${props => props.theme["gray-300"]}
+    color: ${(props) => props.theme['gray-300']};
   }
 
   div {
@@ -32,7 +32,7 @@ export const Card = styled.div`
     justify-content: space-between;
 
     span {
-      color: ${props => props.theme["gray-500"]};
+      color: ${(props) => props.theme['gray-500']};
       display: flex;
       align-items: center;
     }
@@ -41,8 +41,11 @@ export const Card = styled.div`
 
 interface PriceHighlightProps {
   variant: 'income' | 'outcome'
-  }
-  
-  export const PriceHighlight = styled.h3<PriceHighlightProps>`
-  color: ${props => props.variant === 'income' ? props.theme["green-300"] : props.theme["red-300"]}
-  `
+}
+
+export const PriceHighlight = styled.h3<PriceHighlightProps>`
+  color: ${(props) =>
+    props.variant === 'income'
+      ? props.theme['green-300']
+      : props.theme['red-300']};
+`

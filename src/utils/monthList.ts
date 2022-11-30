@@ -1,52 +1,50 @@
 export const monthList = [
   {
     monthNumber: 0,
-    monthName: "Jan", 
-  }, 
+    monthName: 'Jan',
+  },
   {
     monthNumber: 1,
-    monthName: "Fev", 
-  }, 
+    monthName: 'Fev',
+  },
   {
     monthNumber: 2,
-    monthName: "Mar",
-  }, 
+    monthName: 'Mar',
+  },
   {
     monthNumber: 3,
-    monthName: "Abr", 
-  }, 
+    monthName: 'Abr',
+  },
   {
     monthNumber: 4,
-    monthName: "Mai",
-  }, 
+    monthName: 'Mai',
+  },
   {
     monthNumber: 5,
-    monthName: "Jun",
-  }, 
+    monthName: 'Jun',
+  },
   {
     monthNumber: 6,
-    monthName: "Jul",
-  }, 
+    monthName: 'Jul',
+  },
   {
     monthNumber: 7,
-    monthName: "Ago",
-  }, 
+    monthName: 'Ago',
+  },
   {
     monthNumber: 8,
-    monthName: "Set", 
-  }, 
+    monthName: 'Set',
+  },
   {
     monthNumber: 9,
-    monthName: "Out",
-  }, 
+    monthName: 'Out',
+  },
   {
     monthNumber: 10,
-    monthName: "Nov",
-  }, 
+    monthName: 'Nov',
+  },
   {
     monthNumber: 11,
-    monthName:  "Des"
-  }, 
+    monthName: 'Des',
+  },
 ]
-
- 

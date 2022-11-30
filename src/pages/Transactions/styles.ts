@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import * as Tabs from '@radix-ui/react-tabs';
+import styled from 'styled-components'
+import * as Tabs from '@radix-ui/react-tabs'
 
 export const TransactionsContainer = styled.main`
   width: 100%;
@@ -18,7 +18,7 @@ export const CustomTabsList = styled(Tabs.List)`
 export const CustomTabsTrigger = styled(Tabs.Trigger)`
   all: unset;
   font-family: inherit;
-  background-color: ${props => props.theme["gray-900"]};
+  background-color: ${(props) => props.theme['gray-900']};
   padding: 0 20px;
   height: 45px;
   flex: 1;
@@ -27,18 +27,24 @@ export const CustomTabsTrigger = styled(Tabs.Trigger)`
   justify-content: center;
   font-size: 1rem;
   line-height: 1;
-  color: ${props => props.theme.white};
+  color: ${(props) => props.theme.white};
   user-select: none;
   cursor: pointer;
-  
-  &:first-child { border-top-left-radius: 6px };
-  &:last-child { border-top-right-radius: 6px };
-  &:hover { color: ${props => props.theme["gray-100"]} };
-  &[data-state="active"] {
-    background-color: ${props => props.theme["green-700"]};
-  };
-  &:focus { 
-    position: relative; 
-    background-color: ${props => props.theme["green-500"]};
-  };
+
+  &:first-child {
+    border-top-left-radius: 6px;
+  }
+  &:last-child {
+    border-top-right-radius: 6px;
+  }
+  &:hover {
+    color: ${(props) => props.theme['gray-100']};
+  }
+  &[data-state='active'] {
+    background-color: ${(props) => props.theme['green-700']};
+  }
+  &:focus {
+    position: relative;
+    background-color: ${(props) => props.theme['green-500']};
+  }
 `

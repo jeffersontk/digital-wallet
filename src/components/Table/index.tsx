@@ -7,24 +7,20 @@ interface tableProps {
   transactions: Transaction[]
 }
 
-export default function Table({transactions}:tableProps) {
+export default function Table({ transactions }: tableProps) {
   return (
     <TransactionsTable>
       <tbody>
-        {transactions.map(transaction => (
+        {transactions.map((transaction) => (
           <tr key={transaction.id}>
-            <td width="50%">
-            {transaction.description}
-            </td>
+            <td width="50%">{transaction.description}</td>
             <td>
               <PriceHighlight variant={transaction.type}>
                 {transaction.type === 'outcome' && '- '}
                 {priceFormatter.format(transaction.price)}
-              </PriceHighlight> 
+              </PriceHighlight>
             </td>
-            <td>
-              {transaction.category}
-            </td>
+            <td>{transaction.category}</td>
             <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
           </tr>
         ))}

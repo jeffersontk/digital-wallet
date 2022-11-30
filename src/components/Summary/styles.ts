@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const SummaryContainer = styled.section`
   width: 100%;
@@ -12,27 +12,27 @@ export const SummaryContainer = styled.section`
 
   margin-top: -5rem;
 
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     margin-top: -3rem;
     overflow-x: scroll;
   }
-`;
+`
 
 interface SummaryCardProps {
   variant?: 'positive' | 'negative'
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
-  background: ${props => props.theme["gray-600"]};
+  background: ${(props) => props.theme['gray-600']};
   border-radius: 6px;
   padding: 2rem;
   min-width: 280px;
-  
+
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: ${props => props.theme["gray-300"]}
+    color: ${(props) => props.theme['gray-300']};
   }
   strong {
     display: block;
@@ -40,11 +40,15 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     font-size: 2rem;
   }
 
-  ${props => props.variant === 'positive' && css`
-    background: ${props.theme["green-700"]};
-  `}
-  
-  ${props => props.variant === 'negative' && css`
-    background: ${props.theme["red-700"]};
-  `}
+  ${(props) =>
+    props.variant === 'positive' &&
+    css`
+      background: ${props.theme['green-700']};
+    `}
+
+  ${(props) =>
+    props.variant === 'negative' &&
+    css`
+      background: ${props.theme['red-700']};
+    `}
 `
