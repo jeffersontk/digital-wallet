@@ -7,7 +7,7 @@
       "typeOfExpense": "income",
       "category": "venda",
       "price": 14000,
-      "createdAt": "2022-11-09T17:53:44.505Z"
+      "createdAt": "2022-07-09T17:53:44.505Z"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "typeOfExpense": "fixed",
       "category": "casa",
       "price": 183,
-      "createdAt": "2022-11-09T17:53:44.505Z"
+      "createdAt": "2022-08-09T17:53:44.505Z"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "category": "eletronico",
       "description": "PC RBG DA NASA",
       "price": 11200,
-      "type": "income",
+      "type": "outcome",
       "createdAt": "2022-11-30T19:34:42.428Z",
       "id": 4
     },
@@ -43,6 +43,23 @@
       "typeVariableOutcome": "variable",
       "createdAt": "2022-11-30T20:04:39.642Z",
       "id": 5
+    },
+    {
+      "category": "casa",
+      "description": "alugel",
+      "price": 1550,
+      "type": "outcome",
+      "typeVariableOutcome": "fixed",
+      "createdAt": "2022-11-30T21:19:00.439Z",
+      "id": 6
+    },
+    {
+      "category": "salario",
+      "description": "Salario novembro",
+      "price": 2830,
+      "type": "income",
+      "createdAt": "2022-11-30T21:21:40.214Z",
+      "id": 7
     }
   ]
 }

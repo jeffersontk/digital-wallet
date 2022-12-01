@@ -1,25 +1,38 @@
 import { Card, CardContainer, PriceHighlight } from './styled'
 import { CgPentagonRight } from 'react-icons/cg'
 import { HiOutlineCalendar } from 'react-icons/hi'
+import { Transaction } from '../../contexts/TransactionsContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
-export default function TransactionCard() {
+interface TransactionsCardProps {
+  transactions: Transaction[]
+}
+
+export default function TransactionCard({
+  transactions,
+}: TransactionsCardProps) {
   return (
     <CardContainer>
-      <Card>
-        <h4>Salário</h4>
-        <PriceHighlight variant="income">R$ 4.000,00</PriceHighlight>
+      {transactions.map((transaction) => (
+        <Card key={transaction.id}>
+          <h4>{transaction.description}</h4>
+          <PriceHighlight variant={transaction.type}>
+            {transaction.type === 'outcome' && '- '}
+            {priceFormatter.format(transaction.price)}
+          </PriceHighlight>
 
-        <div>
-          <span>
-            <CgPentagonRight size={24} />
-            Salário
-          </span>
-          <span>
-            <HiOutlineCalendar size={24} />
-            25/10/2022
-          </span>
-        </div>
-      </Card>
+          <div>
+            <span>
+              <CgPentagonRight size={24} />
+              {transaction.category}
+            </span>
+            <span>
+              <HiOutlineCalendar size={24} />
+              {dateFormatter.format(new Date(transaction.createdAt))}
+            </span>
+          </div>
+        </Card>
+      ))}
     </CardContainer>
   )
 }

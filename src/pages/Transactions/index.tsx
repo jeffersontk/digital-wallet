@@ -40,7 +40,7 @@ export type SearchFormMonthInputs = z.infer<typeof searchFormMonthSchema>
 
 export function Transactions() {
   const matches = useMediaQuery('(min-width: 768px)')
-  const { transactions } = useContext(TransactionContext)
+  const { transactions, fetchTransactions } = useContext(TransactionContext)
 
   const { control, watch } = useForm<SearchFormMonthInputs>({
     resolver: zodResolver(searchFormMonthSchema),
@@ -48,9 +48,20 @@ export function Transactions() {
 
   const currentMonthSelect = watch('month')
 
+  async function handleSearchTransactions(data: string) {
+    switch (data) {
+      case 'all':
+        await fetchTransactions()
+        break
+      default:
+        await fetchTransactions(data)
+        break
+    }
+  }
+
   useEffect(() => {
     if (currentMonthSelect) {
-      console.log('currentMonthSelect', currentMonthSelect)
+      handleSearchTransactions(`${currentMonthSelect}`)
     }
   }, [currentMonthSelect])
 
@@ -82,29 +93,32 @@ export function Transactions() {
             )
           }}
         />
-        <Tabs.Root defaultValue="tab1">
+        <Tabs.Root
+          defaultValue="all"
+          onValueChange={(value) => handleSearchTransactions(value)}
+        >
           <CustomTabsList aria-label="Tipo de gastos">
-            <CustomTabsTrigger value="tab1">Todas</CustomTabsTrigger>
-            <CustomTabsTrigger value="tab2">Fixos</CustomTabsTrigger>
-            <CustomTabsTrigger value="tab3">Variados</CustomTabsTrigger>
+            <CustomTabsTrigger value="all">Todas</CustomTabsTrigger>
+            <CustomTabsTrigger value="fixed">Fixos</CustomTabsTrigger>
+            <CustomTabsTrigger value="variable">Variados</CustomTabsTrigger>
           </CustomTabsList>
-          <Tabs.Content value="tab1">
+          <Tabs.Content value="all">
             {!matches ? (
-              <TransactionCard />
+              <TransactionCard transactions={transactions} />
             ) : (
               <Table transactions={transactions} />
             )}
           </Tabs.Content>
-          <Tabs.Content value="tab2">
+          <Tabs.Content value="fixed">
             {!matches ? (
-              <TransactionCard />
+              <TransactionCard transactions={transactions} />
             ) : (
               <Table transactions={transactions} />
             )}
           </Tabs.Content>
-          <Tabs.Content value="tab3">
+          <Tabs.Content value="variable">
             {!matches ? (
-              <TransactionCard />
+              <TransactionCard transactions={transactions} />
             ) : (
               <Table transactions={transactions} />
             )}

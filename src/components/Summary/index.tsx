@@ -9,7 +9,7 @@ export function Summary() {
 
   return (
     <SummaryContainer>
-      <SummaryCard variant="positive">
+      <SummaryCard variant={total >= 0 ? 'positive' : 'negative'}>
         <header>
           <span>Saldo atual</span>
           <BsCurrencyDollar color="#fff" size={32} />

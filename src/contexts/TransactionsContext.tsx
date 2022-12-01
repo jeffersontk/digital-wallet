@@ -21,6 +21,7 @@ interface CreateTransactionInputs {
 
 interface TransactionContextType {
   transactions: Transaction[]
+  transactionsBySummary: Transaction[]
   fetchTransactions: (query?: string) => Promise<void>
   createTransaction: (data: CreateTransactionInputs) => Promise<void>
 }
@@ -33,6 +34,9 @@ export const TransactionContext = createContext({} as TransactionContextType)
 
 export function TransactionProvider({ children }: TransactionProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
+  const [transactionsBySummary, setTransactionsBySummary] = useState<
+    Transaction[]
+  >([])
 
   async function fetchTransactions(query?: string) {
     const response = await api.get(`/transactions`, {
@@ -44,6 +48,12 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
     })
 
     setTransactions(response.data)
+  }
+
+  async function fetchTransactionsBySummary(query?: string) {
+    const response = await api.get(`/transactions`)
+
+    setTransactionsBySummary(response.data)
   }
 
   async function createTransaction(data: CreateTransactionInputs) {
@@ -59,16 +69,20 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
     })
 
     setTransactions((state) => [response.data, ...state])
+
+    setTransactionsBySummary((state) => [response.data, ...state])
   }
 
   useEffect(() => {
     fetchTransactions()
+    fetchTransactionsBySummary()
   }, [])
 
   return (
     <TransactionContext.Provider
       value={{
         transactions,
+        transactionsBySummary,
         fetchTransactions,
         createTransaction,
       }}
